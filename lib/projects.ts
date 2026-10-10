@@ -34,7 +34,7 @@ export const projects: readonly Project[] = [
     coverAlt: "Reci landing page with playful 3D food models",
     heroVideo: "/reci/recivideo.mp4",
     accent: "#e7f31f",
-    liveUrl: "https://reci-puce.vercel.app",
+    liveUrl: "https://reciproject.vercel.app",
     overview:
       "Reci is a recipe discovery app that helps people find Indian recipes by ingredients, dish names, or cravings. Filters for dietary preference, cuisine, meal type, mood, and dish type make it easier to narrow the results, while playful 3D food visuals give the experience a distinctive identity.",
     challenge:
