@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
+import { AutoplayVideo } from "@/components/autoplay-video";
 import styles from "@/app/work/[slug]/project.module.css";
 
 type LaptopScreen = {
@@ -29,7 +30,12 @@ const reciScreens: readonly LaptopScreen[] = [
 ];
 
 const gibberLinkScreens: readonly LaptopScreen[] = [
-  { src: "/Gibberlink/GLhomevideo.mov", alt: "GibberLink home page walkthrough", type: "video" },
+  {
+    src: "/Gibberlink/GLhomevideo.mp4",
+    alt: "GibberLink home page walkthrough",
+    type: "video",
+    poster: "/Gibberlink/GLhomevideo-poster.jpg",
+  },
   { src: "/Gibberlink/GL11.png", alt: "GibberLink live multi-agent discussion" },
   { src: "/Gibberlink/GL12.png", alt: "GibberLink decision summary and action plan" },
 ];
@@ -62,15 +68,12 @@ export function CaseStudyLaptopCarousel({ project = "reci" }: { project?: "reci"
             <span className={styles.laptopScreen}>
               <span className={styles.laptopCamera} aria-hidden="true" />
               {screen.type === "video" ? (
-                <video
-                  aria-hidden="true"
-                  autoPlay={isSelected}
-                  loop
-                  muted
-                  playsInline
-                  poster={screen.poster}
-                  preload={isSelected ? "auto" : "metadata"}
+                <AutoplayVideo
                   src={screen.src}
+                  poster={screen.poster}
+                  label={screen.alt}
+                  autoPlay={isSelected}
+                  decorative
                 />
               ) : (
                 <Image src={screen.src} alt="" fill sizes="(max-width: 700px) 78vw, 58vw" />

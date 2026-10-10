@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { AutoplayVideo } from "@/components/autoplay-video";
 import { CaseStudyLaptopCarousel } from "@/components/case-study-laptop-carousel";
 import { GibberLinkImageCarousel } from "@/components/gibberlink-image-carousel";
 import { ReciMobileShowcase } from "@/components/reci-mobile-showcase";
@@ -151,21 +152,15 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
             </div>
           </div>
         ) : project.heroVideo ? (
-          <video
-            className={styles.heroVideo}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
+          <AutoplayVideo
+            src={project.heroVideo}
             poster={project.cover}
-            aria-label={`${project.title} website preview`}
-          >
-            <source src={project.heroVideo} type="video/mp4" />
-          </video>
-          ) : (
-            <Image src={project.cover} alt={project.coverAlt} fill priority sizes="100vw" className={styles.heroImage} />
-          )}
+            className={styles.heroVideo}
+            label={`${project.title} website preview`}
+          />
+        ) : (
+          <Image src={project.cover} alt={project.coverAlt} fill priority sizes="100vw" className={styles.heroImage} />
+        )}
       </div>
 
       {usesEditorialOverview ? (
@@ -221,18 +216,11 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
           <div className={styles.dashboardLaptop}>
             <span className={styles.laptopScreen}>
               <span className={styles.laptopCamera} aria-hidden="true" />
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
+              <AutoplayVideo
+                src="/Gibberlink/GLhomevideo.mp4"
                 poster="/Gibberlink/GLhomevideo-poster.jpg"
-                aria-label="GibberLink dashboard walkthrough"
-              >
-                <source src="/Gibberlink/GLhomevideo.mp4" type="video/mp4" />
-                Your browser does not support embedded video.
-              </video>
+                label="GibberLink dashboard walkthrough"
+              />
             </span>
             <span className={styles.laptopBase} aria-hidden="true"><span /></span>
           </div>
