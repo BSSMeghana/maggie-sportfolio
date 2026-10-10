@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { PortfolioPreloader } from "@/components/portfolio-preloader";
+import { CustomCursor } from "@/components/custom-cursor";
 
 import "./globals.css";
 
@@ -19,6 +21,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>
+        <PortfolioPreloader />
+        <CustomCursor />
         <Header />
         {children}
         <Footer />
