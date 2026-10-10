@@ -221,8 +221,17 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
           <div className={styles.dashboardLaptop}>
             <span className={styles.laptopScreen}>
               <span className={styles.laptopCamera} aria-hidden="true" />
-              <video autoPlay loop muted playsInline preload="metadata" aria-label="GibberLink dashboard walkthrough">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                poster="/Gibberlink/GLhomevideo-poster.jpg"
+                aria-label="GibberLink dashboard walkthrough"
+              >
                 <source src="/Gibberlink/GLhomevideo.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
               </video>
             </span>
             <span className={styles.laptopBase} aria-hidden="true"><span /></span>

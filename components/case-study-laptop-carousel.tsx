@@ -9,12 +9,23 @@ type LaptopScreen = {
   src: string;
   alt: string;
   type?: "image" | "video";
+  poster?: string;
 };
 
 const reciScreens: readonly LaptopScreen[] = [
   { src: "/reci/reci1.jpeg", alt: "Reci recipe discovery homepage" },
-  { src: "/reci/recirecomvideo.mp4", alt: "Reci recipe recommendation experience", type: "video" },
-  { src: "/reci/reciabtvideo.mp4", alt: "Reci project overview", type: "video" },
+  {
+    src: "/reci/recirecomvideo.mp4",
+    alt: "Reci recipe recommendation experience",
+    type: "video",
+    poster: "/reci/recirecomvideo-poster.jpg",
+  },
+  {
+    src: "/reci/reciabtvideo.mp4",
+    alt: "Reci project overview",
+    type: "video",
+    poster: "/reci/reciabtvideo-poster.jpg",
+  },
 ];
 
 const gibberLinkScreens: readonly LaptopScreen[] = [
@@ -53,11 +64,12 @@ export function CaseStudyLaptopCarousel({ project = "reci" }: { project?: "reci"
               {screen.type === "video" ? (
                 <video
                   aria-hidden="true"
-                  autoPlay
+                  autoPlay={isSelected}
                   loop
                   muted
                   playsInline
-                  preload="metadata"
+                  poster={screen.poster}
+                  preload={isSelected ? "auto" : "metadata"}
                   src={screen.src}
                 />
               ) : (
