@@ -17,25 +17,27 @@ export function Footer() {
           </a>
         </div>
         <div className={styles.footerBar}>
-          <div className={styles.location}>VIZAG, INDIA</div>
           <div className={styles.time}><VizagClock /> GMT +5:30</div>
-          <a
-            className={styles.social}
-            href="https://www.linkedin.com/in/bantubilli-sai-siva-meghana"
-            target="_blank"
-            rel="noreferrer"
-          >
-            LINKEDIN
-          </a>
-          <a
-            className={styles.social}
-            href="https://github.com/BSSMeghana"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GITHUB
-          </a>
-          <a className={styles.backToTop} href="#" aria-label="Back to top">↑</a>
+          <div className={styles.footerMeta}>
+            <a
+              className={styles.social}
+              href="https://www.linkedin.com/in/bantubilli-sai-siva-meghana"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LINKEDIN
+            </a>
+            <a
+              className={styles.social}
+              href="https://github.com/BSSMeghana"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GITHUB
+            </a>
+            <div className={styles.location}>VIZAG, INDIA</div>
+            <a className={styles.backToTop} href="#" aria-label="Back to top">↑</a>
+          </div>
         </div>
       </div>
     </footer>

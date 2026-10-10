@@ -39,7 +39,7 @@
 }
 
 .cursor[data-hover="true"] .ring {
-  border-color: rgb(53 118 211 / 90%);
+  border-color: solid rgb(32, 70, 123);
   background: rgb(53 118 211 / 8%);
   transform: translate3d(var(--cursor-x), var(--cursor-y), 0) translate(-50%, -50%) scale(1.3);
 }

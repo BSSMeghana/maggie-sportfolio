@@ -2,7 +2,7 @@
   position: relative;
   z-index: 3;
   isolation: isolate;
-  padding-top: clamp(34px, 4vw, 72px);
+  padding-top: clamp(18px, 2vw, 36px);
   background: #fefdf8;
 }
 
@@ -14,7 +14,7 @@
   position: relative;
   z-index: 1;
   display: grid;
-  min-height: min(900px, 92svh);
+  min-height: min(760px, 86svh);
   overflow: hidden;
   place-items: center;
   background: #090909;
@@ -34,13 +34,13 @@
   z-index: 1;
   display: grid;
   width: min(92vw, 1450px);
-  padding: 70px 20px 120px;
+  padding: 42px 20px 84px;
   place-items: center;
   text-align: center;
 }
 
 .eyebrow {
-  margin: 0 0 clamp(50px, 6vw, 95px);
+  margin: 0 0 clamp(30px, 4vw, 64px);
   font-size: clamp(13px, 1vw, 18px);
   font-weight: 500;
   letter-spacing: 0.05em;
@@ -70,7 +70,7 @@
 
 .contactPill {
   min-width: min(420px, 72vw);
-  margin-top: clamp(70px, 8vw, 126px);
+  margin-top: clamp(48px, 5.5vw, 88px);
   padding: 24px 34px 20px;
   border: 1px solid rgb(254 253 248 / 82%);
   border-radius: 999px;
@@ -90,17 +90,22 @@
 
 .footerBar {
   position: absolute;
-  right: 24px;
+  right: clamp(20px, 1.7vw, 34px);
   bottom: 24px;
-  left: 24px;
+  left: clamp(20px, 1.7vw, 34px);
   z-index: 2;
-  display: grid;
-  grid-template-columns: minmax(80px, 1fr) auto auto auto auto 44px;
-  gap: clamp(20px, 3vw, 64px);
-  align-items: end;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: clamp(12px, 1vw, 17px);
   font-weight: 500;
   white-space: nowrap;
+}
+
+.footerMeta {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2vw, 40px);
 }
 
 .time time {
@@ -113,10 +118,13 @@
 }
 
 .backToTop {
+  display: grid;
+  width: 44px;
+  height: 32px;
+  place-items: center end;
   color: inherit;
   font-size: 30px;
-  line-height: 0.75;
-  text-align: right;
+  line-height: 1;
   text-decoration: none;
 }
 
@@ -132,16 +140,16 @@
 
 @media (max-width: 800px) {
   .panel {
-    min-height: 720px;
+    min-height: 620px;
   }
 
   .callout {
     align-self: start;
-    padding-top: 90px;
+    padding-top: 64px;
   }
 
   .eyebrow {
-    margin-bottom: 58px;
+    margin-bottom: 40px;
   }
 
   .message {
@@ -161,27 +169,50 @@
   }
 
   .contactPill {
-    margin-top: 70px;
+    margin-top: 52px;
   }
 
   .footerBar {
-    grid-template-columns: 1fr auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 18px 20px;
+    align-items: end;
+  }
+
+  .footerMeta {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 14px 16px;
+    align-items: end;
+    justify-items: end;
+  }
+
+  .time {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
   }
 
   .location,
-  .time,
   .social {
     text-align: right;
   }
 
   .backToTop {
     position: static;
-    display: grid;
-    width: 44px;
-    height: 44px;
-    grid-column: 2;
-    place-items: center end;
     justify-self: end;
+  }
+}
+
+@media (max-width: 480px) {
+  .footerBar {
+    right: 16px;
+    left: 16px;
+    gap: 10px;
+    font-size: 11px;
+  }
+
+  .footerMeta {
+    gap: 14px 10px;
   }
 }

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { LotusFallback } from "./lotus-fallback";
+import { publishLotusLoading } from "./lotus-loading";
 
 function disposeModel(model: THREE.Object3D) {
   model.traverse((object) => {
@@ -42,6 +43,7 @@ export function LotusModel() {
       // Treat an incomplete WebGL context as unavailable.
     }
     if (!context || !contextAvailable) {
+      publishLotusLoading(100, true);
       queueMicrotask(() => setLoadState("error"));
       return;
     }
@@ -74,6 +76,7 @@ export function LotusModel() {
       } catch {
         // The context is already unusable.
       }
+      publishLotusLoading(100, true);
       queueMicrotask(() => setLoadState("error"));
       return;
     }
@@ -92,6 +95,7 @@ export function LotusModel() {
       event.preventDefault();
       contextLost = true;
       setLoadState("error");
+      publishLotusLoading(100, true);
     };
     canvas.addEventListener("webglcontextlost", onContextLost);
 
@@ -264,12 +268,21 @@ export function LotusModel() {
         scene.updateMatrixWorld(true);
         loadedModel = model;
         setLoadState("ready");
+        publishLotusLoading(100, true);
       },
-      undefined,
+      (event) => {
+        if (event.total > 0) {
+          // Leave the final few percent for parsing and the first render.
+          publishLotusLoading((event.loaded / event.total) * 96);
+        } else {
+          publishLotusLoading(Math.min(90, 12 + (event.loaded / 1_000_000) * 12));
+        }
+      },
       (error) => {
         if (!disposed) {
           console.error("Could not load lotus.glb", error);
           setLoadState("error");
+          publishLotusLoading(100, true);
         }
       },
     );
