@@ -34,8 +34,10 @@ export function Footer() {
             >
               GITHUB
             </a>
-            <div className={styles.location}>VIZAG, INDIA</div>
-            <a className={styles.backToTop} href="#" aria-label="Back to top">↑</a>
+            <div className={styles.locationGroup}>
+              <div className={styles.location}>VIZAG, INDIA</div>
+              <a className={styles.backToTop} href="#" aria-label="Back to top">↑</a>
+            </div>
           </div>
         </div>
       </div>

@@ -11,7 +11,10 @@ export function StackPreview() {
     <main className={styles.hero} id="about">
       <h1 className="sr-only">Meghana BSS — UI/UX Designer and Frontend Developer</h1>
 
-      <p className={`${styles.pixelHeading} ${retropix.className}`} aria-hidden="true">UI UX DESIGNER</p>
+      <p className={`${styles.pixelHeading} ${retropix.className}`} aria-hidden="true">
+        <span className={styles.headingPrefix}>UI UX</span>{" "}
+        <span className={styles.headingDesigner}>DESIGNER</span>
+      </p>
 
       <div className={styles.heroIntro}>
         <h2>
@@ -20,7 +23,7 @@ export function StackPreview() {
           <span>ideas to life through thoughtful design and code.</span>
         </h2>
         <p>
-          I&apos;m <span className={styles.nameHighlight}>BSS Meghana</span>, a UI/UX designer and frontend developer. I turn complex workflows into clear, responsive experiences. I use AI to explore ideas and iterate faster, then bring care and judgment to the design and details that make a product useful. If you&apos;d like to collaborate, feel free to <a className={styles.contactLink} href="#contact">connect with me</a>.
+          I&apos;m <a className={styles.nameHighlight} href="/about">BSS Meghana</a>, a UI/UX designer and frontend developer. I turn complex workflows into clear, responsive experiences. I use AI to explore ideas and iterate faster, then bring care and judgment to the design and details that make a product useful. To connect, <a className={styles.contactLink} href="#contact">let&apos;s talk</a>. I&apos;d love to hear what you&apos;re working on.
         </p>
         <a className={styles.projectsScroll} href="#work">
           <span>Scroll to explore</span>

@@ -9,13 +9,21 @@
 .intro {
   position: relative;
   min-height: calc(100svh - 50px);
-  padding: clamp(40px, 4vw, 64px) clamp(20px, 2vw, 40px) 24px;
+  padding: clamp(40px, 4vw, 64px) 30px 24px;
   border-bottom: 1px solid #c8c8c3;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1300px) and (max-width: 1550px) and (min-height: 900px) and (max-height: 1000px) {
   .intro {
-    padding-right: 16px;
+    min-height: auto;
+    padding-bottom: 64px;
+  }
+}
+
+@media (min-width: 1500px) and (max-width: 1850px) and (min-height: 1000px) {
+  .intro {
+    min-height: auto;
+    padding-bottom: 80px;
   }
 }
 
@@ -173,7 +181,7 @@
 .experience {
   position: relative;
   min-height: 190svh;
-  padding: clamp(18px, 2vw, 36px) clamp(20px, 1.5vw, 40px) 80px;
+  padding: clamp(18px, 2vw, 36px) 30px 80px;
 }
 
 .experienceSticky {
@@ -236,13 +244,14 @@
 .role {
   margin-top: 10px;
   font-weight: 300;
+  color: #164da3;
   text-transform: uppercase;
 }
 
 .stack {
   position: relative;
-  min-height: 100svh;
-  padding: 8px clamp(20px, 1.5vw, 40px) 90px;
+  min-height: 72svh;
+  padding: 8px 30px 90px;
 }
 
 .stackTitle {
@@ -266,6 +275,7 @@
 
 .stackGroupTitle {
   margin: 0;
+  color: #164da3;
   font-size: clamp(32px, 3.2vw, 70px);
   font-weight: 300;
   line-height: 1;
@@ -328,8 +338,7 @@
 
 .education {
   position: relative;
-  min-height: 100svh;
-  padding: clamp(24px, 2.4vw, 44px) clamp(20px, 1.5vw, 40px) 90px;
+  padding: clamp(24px, 2.4vw, 44px) 30px 48px;
 }
 
 .educationTitle {
@@ -338,6 +347,9 @@
   font-weight: 300;
   line-height: 0.95;
   letter-spacing: -0.03em;
+  animation: skillReveal 600ms both;
+  animation-timeline: view();
+  animation-range: entry 5% cover 24%;
 }
 
 .educationList {
@@ -350,6 +362,9 @@
   align-items: start;
   gap: clamp(28px, 4vw, 80px);
   padding-bottom: clamp(24px, 2.5vw, 44px);
+  animation: skillReveal 600ms both;
+  animation-timeline: view();
+  animation-range: entry 5% cover 24%;
 }
 
 .educationItem + .educationItem {
@@ -365,6 +380,10 @@
   font-weight: 300;
   line-height: 1.16;
   letter-spacing: -0.03em;
+}
+
+.degree {
+  color: #164da3;
 }
 
 .institution {
@@ -383,7 +402,7 @@
   }
 
   .intro {
-    padding: 28px 12px 90px 18px;
+    padding: 28px 30px 90px;
   }
 
   .content {
@@ -415,7 +434,7 @@
   }
 
   .experience {
-    padding: 38px 18px 70px;
+    padding: 38px 30px 70px;
   }
 
   .experienceSticky {
@@ -454,7 +473,7 @@
   }
 
   .stack {
-    padding: 24px 18px 70px;
+    padding: 24px 30px 70px;
   }
 
   .stackTitle {
@@ -482,7 +501,7 @@
   }
 
   .education {
-    padding: 38px 18px 70px;
+    padding: 38px 30px 70px;
   }
 
   .educationTitle {
@@ -511,10 +530,22 @@
   }
 }
 
+@media (max-width: 720px) {
+  .intro,
+  .experience,
+  .stack,
+  .education {
+    padding-right: 26px;
+    padding-left: 26px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .skill {
+  .skill,
+  .educationTitle,
+  .educationItem {
     animation: none;
-    transition: none;
   }
 
+  .skill { transition: none; }
 }

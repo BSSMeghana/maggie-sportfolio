@@ -29,10 +29,10 @@ export default function AboutPage() {
                 meet you!
                 <Image
                   className={styles.greetingElephant}
-                  src="/elehello.png"
+                  src="/aboutele-hq.png"
                   alt=""
-                  width={409}
-                  height={371}
+                  width={1254}
+                  height={1254}
                 />
               </span>
             </p>

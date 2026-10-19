@@ -131,11 +131,18 @@
   text-decoration: none;
 }
 
+.locationGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .backToTop {
   display: grid;
   width: 44px;
   height: 32px;
   place-items: center end;
+  transform: translateY(-9px);
   color: inherit;
   font-size: 30px;
   line-height: 1;

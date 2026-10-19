@@ -30,6 +30,7 @@
 }
 
 .brand {
+  transform: translateX(14px);
   flex-shrink: 0;
   font-size: 15px;
 }
@@ -44,6 +45,10 @@
 
 .link {
   flex-shrink: 0;
+}
+
+.navigation > .link:last-child {
+  transform: translateX(-14px);
 }
 
 .workMenu {
