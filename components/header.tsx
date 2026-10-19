@@ -8,7 +8,7 @@ import { projects } from "@/lib/projects";
 import styles from "./header.module.css";
 
 const navigation = [
-  { label: "RESUME", href: "/bss_meghana_resume.pdf", externalIcon: true, download: true },
+  { label: "RESUME", href: "/bss_meghana_resume.pdf", download: true },
   { label: "CONTACT", href: "/#contact", download: false },
 ];
 
@@ -68,10 +68,13 @@ export function Header() {
             ))}
           </div>
         </details>
-        {navigation.map(({ label, href, externalIcon, download }) => (
-          <Link className={styles.link} href={href} key={label} download={download || undefined}>
+        {navigation.map(({ label, href, download }) => download ? (
+          <a className={styles.link} href={href} key={label} download>
+            {label}<span aria-hidden="true">↗</span>
+          </a>
+        ) : (
+          <Link className={styles.link} href={href} key={label}>
             {label}
-            {externalIcon && <span aria-hidden="true">↗</span>}
           </Link>
         ))}
       </nav>

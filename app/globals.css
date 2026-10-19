@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #090909;
-  --color-paper: #fefdf8;
+  --color-ink: #353535;
+  --color-paper: #fefcf2;
 }
 
 :root {
   color-scheme: light;
   --background: #fefcf2;
-  --foreground: #090909;
+  --foreground: #353535;
 }
 
 * {
@@ -18,6 +18,10 @@
 html,
 body {
   min-height: 100%;
+}
+
+html {
+  scroll-padding-top: 30px;
 }
 
 body {

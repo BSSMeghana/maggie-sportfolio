@@ -11,6 +11,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Maggie’s Portfolio",
   description: "Product design portfolio",
+  icons: {
+    icon: "/MBicon.svg?v=3",
+  },
 };
 
 type RootLayoutProps = Readonly<{

@@ -7,7 +7,7 @@ import Image from "next/image";
 import { subscribeToLotusLoading } from "./lotus-loading";
 import styles from "./portfolio-preloader.module.css";
 
-const MINIMUM_DISPLAY_MS = 2000;
+const MINIMUM_DISPLAY_MS = 1400;
 const EXIT_DURATION_MS = 520;
 
 export function PortfolioPreloader() {
@@ -65,7 +65,7 @@ export function PortfolioPreloader() {
 
   if (!visible) return null;
 
-  const formattedProgress = progress.toFixed(2);
+  const formattedProgress = Math.round(progress);
 
   return (
     <div
@@ -75,7 +75,8 @@ export function PortfolioPreloader() {
       aria-live="polite"
     >
       <div className={styles.loaderContent}>
-        <Image className={styles.brand} src="/MBicon.svg" alt="" width={100} height={100} priority unoptimized />
+        <Image className={styles.brand} src="/MBicon.svg?v=3" alt="" width={100} height={100} priority unoptimized />
+        <p className={styles.label}>Loading portfolio</p>
         <div
           className={styles.progressTrack}
           role="progressbar"

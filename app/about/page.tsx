@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { AboutCollage } from "./about-collage";
-import { ManifestoText } from "./manifesto-text";
 import styles from "./about.module.css";
 
 export const metadata: Metadata = {
@@ -44,12 +43,6 @@ export default function AboutPage() {
               When I&apos;m not working, I enjoy singing classical music, playing badminton, and overthinking the little things.
             </p>
           </div>
-        </div>
-      </section>
-      <section className={styles.manifesto} aria-labelledby="manifesto-title">
-        <div className={styles.manifestoSticky}>
-          <h2 id="manifesto-title" className={styles.manifestoTitle}>Manifesto</h2>
-          <ManifestoText />
         </div>
       </section>
       <section className={styles.experience} aria-labelledby="experience-title">

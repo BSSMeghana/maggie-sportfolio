@@ -3,7 +3,7 @@
   z-index: 3;
   isolation: isolate;
   padding-top: clamp(18px, 2vw, 36px);
-  background: #fefdf8;
+  background: #fefcf2;
 }
 
 .footer > [aria-hidden="true"] {
@@ -14,11 +14,11 @@
   position: relative;
   z-index: 1;
   display: grid;
-  min-height: min(760px, 86svh);
+  min-height: max(470px, min(600px, 78svh));
   overflow: hidden;
   place-items: center;
-  background: #090909;
-  color: #fefdf8;
+  background: #353535;
+  color: var(--background);
 }
 
 .panel > [aria-hidden="true"] {
@@ -29,18 +29,29 @@
   background: rgb(255 255 255 / 10%);
 }
 
+.panel::before {
+  position: absolute;
+  inset: 0 0 7px;
+  background-image: radial-gradient(circle, rgb(91 145 220 / 45%) 1.2px, transparent 1.6px);
+  background-position: center;
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse at center, #000 12%, rgb(0 0 0 / 72%) 48%, transparent 82%);
+  content: "";
+  pointer-events: none;
+}
+
 .callout {
   position: relative;
   z-index: 1;
   display: grid;
   width: min(92vw, 1450px);
-  padding: 42px 20px 84px;
+  padding: 28px 20px 72px;
   place-items: center;
   text-align: center;
 }
 
 .eyebrow {
-  margin: 0 0 clamp(30px, 4vw, 64px);
+  margin: 0 0 clamp(20px, 2.5vw, 34px);
   font-size: clamp(13px, 1vw, 18px);
   font-weight: 500;
   letter-spacing: 0.05em;
@@ -48,12 +59,12 @@
 }
 
 .message {
-  display: grid;
+  display: block;
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(64px, 8.4vw, 154px);
+  font-size: clamp(32px, 7.2vw, 124px);
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.12;
   letter-spacing: 0.01em;
 }
 
@@ -69,15 +80,18 @@
 }
 
 .contactPill {
-  min-width: min(420px, 72vw);
-  margin-top: clamp(48px, 5.5vw, 88px);
-  padding: 24px 34px 20px;
+  width: min(100%, 420px);
+  min-width: 0;
+  margin-top: clamp(28px, 3.5vw, 52px);
+  padding: 18px clamp(14px, 4vw, 28px) 16px;
   border: 1px solid rgb(254 253 248 / 82%);
   border-radius: 999px;
   font-size: clamp(13px, 1vw, 17px);
   color: inherit;
+  overflow-wrap: anywhere;
   text-decoration: none;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .contactPill:hover,
@@ -113,7 +127,7 @@
 }
 
 .social {
-  color: #fefdf8;
+  color: var(--background);
   text-decoration: none;
 }
 
@@ -140,36 +154,25 @@
 
 @media (max-width: 800px) {
   .panel {
-    min-height: 620px;
+    min-height: 470px;
   }
 
   .callout {
     align-self: start;
-    padding-top: 64px;
+    padding: 44px 16px 84px;
   }
 
   .eyebrow {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
   }
 
   .message {
-    gap: 8px;
-    font-size: clamp(48px, 13vw, 82px);
-    line-height: 0.82;
-  }
-
-  .message span {
-    white-space: normal;
-  }
-
-  .message em {
-    display: block;
-    margin-top: 0.12em;
-    margin-left: 0;
+    font-size: clamp(16px, 6vw, 48px);
+    line-height: 1.25;
   }
 
   .contactPill {
-    margin-top: 52px;
+    margin-top: 30px;
   }
 
   .footerBar {

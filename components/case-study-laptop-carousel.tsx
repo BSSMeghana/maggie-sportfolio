@@ -42,7 +42,8 @@ const gibberLinkScreens: readonly LaptopScreen[] = [
 
 export function CaseStudyLaptopCarousel({ project = "reci" }: { project?: "reci" | "gibberlink" }) {
   const screens = project === "gibberlink" ? gibberLinkScreens : reciScreens;
-  const [selected, setSelected] = useState(0);
+  // Open Reci on its first video so the case study starts with the product in motion.
+  const [selected, setSelected] = useState(() => (project === "reci" ? 1 : 0));
   const positions = [
     (selected + screens.length - 1) % screens.length,
     selected,

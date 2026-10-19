@@ -65,13 +65,27 @@ export function LotusFallback() {
     };
     flower.src = "/lotus-fallback.png";
 
+    let resizeFrame = 0;
+    let lastWidth = 0;
+    let lastHeight = 0;
+    let lastRatio = 0;
     const resize = () => {
+      resizeFrame = 0;
       const ratio = Math.min(window.devicePixelRatio || 1, 2);
-      width = canvas.clientWidth;
-      height = canvas.clientHeight;
+      const nextWidth = canvas.clientWidth;
+      const nextHeight = canvas.clientHeight;
+      if (!nextWidth || !nextHeight || (nextWidth === lastWidth && nextHeight === lastHeight && ratio === lastRatio)) return;
+      width = nextWidth;
+      height = nextHeight;
+      lastWidth = width;
+      lastHeight = height;
+      lastRatio = ratio;
       canvas.width = Math.round(width * ratio);
       canvas.height = Math.round(height * ratio);
       context.setTransform(ratio, 0, 0, ratio, 0, 0);
+    };
+    const scheduleResize = () => {
+      if (!resizeFrame) resizeFrame = window.requestAnimationFrame(resize);
     };
 
     const onPointerMove = (event: PointerEvent) => {
@@ -136,15 +150,16 @@ export function LotusFallback() {
       canvasVisible = true;
     };
 
-    const observer = new ResizeObserver(resize);
+    const observer = new ResizeObserver(scheduleResize);
     observer.observe(canvas);
-    resize();
+    scheduleResize();
     frame = window.requestAnimationFrame(draw);
     canvas.addEventListener("pointermove", onPointerMove);
     canvas.addEventListener("pointerleave", onPointerLeave);
 
     return () => {
       window.cancelAnimationFrame(frame);
+      window.cancelAnimationFrame(resizeFrame);
       observer.disconnect();
       canvas.removeEventListener("pointermove", onPointerMove);
       canvas.removeEventListener("pointerleave", onPointerLeave);

@@ -232,10 +232,16 @@ export function LotusModel() {
     container.addEventListener("pointermove", onPointerMove);
     container.addEventListener("pointerleave", onPointerLeave);
 
+    let resizeFrame = 0;
+    let lastWidth = 0;
+    let lastHeight = 0;
     const resize = () => {
+      resizeFrame = 0;
       const width = container.clientWidth;
       const height = container.clientHeight;
-      if (!width || !height) return;
+      if (!width || !height || (width === lastWidth && height === lastHeight)) return;
+      lastWidth = width;
+      lastHeight = height;
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height, false);
@@ -244,9 +250,12 @@ export function LotusModel() {
       texelSize.value.set(1 / drawingSize.x, 1 / drawingSize.y);
       canvasAspect.value = drawingSize.x / drawingSize.y;
     };
-    const observer = new ResizeObserver(resize);
+    const scheduleResize = () => {
+      if (!resizeFrame) resizeFrame = window.requestAnimationFrame(resize);
+    };
+    const observer = new ResizeObserver(scheduleResize);
     observer.observe(container);
-    resize();
+    scheduleResize();
 
     const loader = new GLTFLoader();
     loader.load(
@@ -311,6 +320,7 @@ export function LotusModel() {
     return () => {
       disposed = true;
       window.cancelAnimationFrame(frame);
+      window.cancelAnimationFrame(resizeFrame);
       observer.disconnect();
       canvas.removeEventListener("webglcontextlost", onContextLost);
       hitImage.onload = null;

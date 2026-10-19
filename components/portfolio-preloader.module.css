@@ -5,10 +5,21 @@
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: #222;
-  color: #fff;
+  background: var(--background);
+  color: #353535;
   opacity: 1;
   transition: opacity 420ms ease, visibility 0s linear 420ms;
+}
+
+.preloader::before {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgb(36 93 168 / 25%) 1.2px, transparent 1.6px);
+  background-position: center;
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse at center, #000 8%, rgb(0 0 0 / 55%) 42%, transparent 76%);
+  content: "";
+  pointer-events: none;
 }
 
 .leaving {
@@ -18,64 +29,58 @@
 }
 
 .loaderContent {
+  position: relative;
+  z-index: 1;
   display: grid;
   justify-items: center;
-  width: min(362px, calc(100vw - 48px));
-  transform: translateY(42px);
+  width: min(280px, calc(100vw - 48px));
 }
 
 .brand {
   display: block;
-  width: 82px;
-  height: 82px;
-  margin-bottom: 21px;
+  width: 68px;
+  height: 68px;
+  margin-bottom: 24px;
+}
+
+.label {
+  margin: 0 0 13px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .progressTrack {
   position: relative;
   width: 100%;
-  height: 18px;
+  height: 4px;
   overflow: hidden;
   border-radius: 999px;
-  background: #fff;
+  background: rgb(53 53 53 / 14%);
 }
 
 .progressFill {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: #164da3;
+  background: #245da8;
   transition: width 45ms linear;
 }
 
 .percentage {
-  margin: 25px 0 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 32px;
+  margin: 14px 0 0;
+  font-size: 14px;
+  font-weight: 500;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.04em;
+  letter-spacing: 0.04em;
   line-height: 1;
 }
 
 @media (max-width: 520px) {
   .loaderContent {
-    width: min(320px, calc(100vw - 48px));
-    transform: translateY(24px);
-  }
-
-  .brand {
-    width: 72px;
-    height: 72px;
-    margin-bottom: 20px;
-  }
-
-  .progressTrack {
-    height: 15px;
-  }
-
-  .percentage {
-    margin-top: 22px;
-    font-size: 28px;
+    width: min(260px, calc(100vw - 48px));
   }
 }
 

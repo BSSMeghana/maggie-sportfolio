@@ -7,11 +7,10 @@ export function Footer() {
     <footer className={styles.footer} id="contact">
       <div className={styles.panel}>
         <div className={styles.callout}>
-          <p className={styles.eyebrow}>Have a project in mind?</p>
-          <p className={styles.message}>
-            <span>Let&apos;s <em>CREATE</em></span>
-            <span> <em> GREAT </em> things together.</span>
-          </p>
+          <p className={styles.eyebrow}>Design thoughtfully. Explore with AI. Build with care.</p>
+          <h2 className={styles.message}>
+            <span>Let&apos;s <em>MAKE IDEAS</em> work.</span>
+          </h2>
           <a className={styles.contactPill} href="mailto:meghana.bantubilli@gmail.com">
             meghana.bantubilli@gmail.com
           </a>

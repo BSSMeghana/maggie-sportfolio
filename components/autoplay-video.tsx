@@ -75,6 +75,7 @@ export function AutoplayVideo({
       poster={poster}
       aria-label={label}
       aria-hidden={decorative || undefined}
+      onError={() => setShowControls(true)}
     >
       <source src={src} type="video/mp4" />
       Your browser does not support embedded video.
