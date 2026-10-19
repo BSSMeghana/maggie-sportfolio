@@ -31,29 +31,41 @@
   left: 0;
 }
 
+.drushtiPage > .heroVisual {
+  width: 100vw;
+  max-width: none;
+  margin-right: calc(50% - 50vw);
+  margin-left: calc(50% - 50vw);
+}
+
 .reciPage {
-  --reci-content-inset: 16px;
+  --reci-content-inset: 30px;
 }
 
 .gibberPage {
-  --reci-content-inset: 16px;
+  --reci-content-inset: 30px;
 }
 
 .sociaPage {
-  --case-side-space: 16px;
+  --case-side-space: 30px;
   --case-content-width: 100vw;
-  --socia-content-inset: 16px;
+  --socia-content-inset: 30px;
   --reci-content-inset: var(--socia-content-inset);
 }
 
 .drushtiPage {
-  --case-side-space: 16px;
+  --case-side-space: 30px;
   --case-content-width: 100vw;
-  --drushti-content-inset: 16px;
+  --drushti-content-inset: 30px;
   --reci-content-inset: var(--drushti-content-inset);
 }
 
 .sociaPage > .heroVisual {
+  width: 100vw;
+  max-width: none;
+  margin-right: calc(50% - 50vw);
+  margin-left: calc(50% - 50vw);
+  padding: 0;
   height: auto;
   aspect-ratio: 2880 / 1694;
 }
@@ -72,18 +84,38 @@
 }
 
 .reciPage .hero {
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: var(--reci-content-inset);
+  padding-right: var(--reci-content-inset);
+}
+
+.reciPage .subtitle {
+  text-align: right;
+}
+
+.reciPage .reciOverviewCopy p,
+.reciPage .reciProblemIntro,
+.reciPage .reciProblem ol,
+.reciPage .mobileShowcaseCopy p,
+.reciPage .galleryCaption p {
+  text-align: justify;
 }
 
 .gibberPage .hero {
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: var(--reci-content-inset);
+  padding-right: var(--reci-content-inset);
+}
+
+.gibberPage .subtitle {
+  text-align: right;
 }
 
 .sociaPage .hero {
   padding-left: var(--socia-content-inset);
   padding-right: var(--socia-content-inset);
+}
+
+.sociaPage .subtitle {
+  text-align: right;
 }
 
 .drushtiPage .hero,
@@ -93,6 +125,10 @@
 .drushtiPage .projectDetail {
   padding-right: var(--drushti-content-inset);
   padding-left: var(--drushti-content-inset);
+}
+
+.drushtiPage .subtitle {
+  text-align: right;
 }
 
 .sociaPage .intro,
@@ -108,8 +144,32 @@
   padding-left: var(--socia-content-inset);
 }
 
+.gibberPage .reciOverviewCopy p,
+.gibberPage .reciProblemIntro,
+.gibberPage .reciProblem ol,
+.gibberPage .gibberDashboardCopy p,
+.gibberPage .gibberDashboardCopy ol,
+.gibberPage .gibberCarouselIntroduction,
+.gibberPage .gibberCarouselSummary,
+.gibberPage .gibberCarouselDescription li p,
+.gibberPage .gibberFeatureCopy p,
+.sociaPage .reciOverviewCopy p,
+.sociaPage .reciProblemIntro,
+.sociaPage .reciProblem ol,
+.sociaPage .gibberDashboardCopy p,
+.sociaPage .gibberDashboardCopy ol,
+.sociaPage .gibberFeatureCopy p,
+.drushtiPage .reciOverviewCopy p,
+.drushtiPage .reciProblemIntro,
+.drushtiPage .reciProblem ol,
+.drushtiPage .gibberFeatureCopy p,
+.drushtiPage .galleryCaption p {
+  text-align: justify;
+}
+
 .eyebrow {
   margin: 0 0 22px;
+  color: #245da8;
   font-size: clamp(14px, 1.2vw, 21px);
   text-transform: uppercase;
 }
@@ -168,9 +228,35 @@
 }
 
 .reciPage > .heroVisual {
-  height: clamp(360px, 58vw, 780px);
+  aspect-ratio: 1920 / 1092;
+  height: auto;
   overflow: visible;
   background: transparent !important;
+}
+
+.reciPage .heroVideo {
+  object-fit: contain;
+}
+
+.reciPage .gallery {
+  width: 100%;
+  max-width: none;
+  padding-right: var(--reci-content-inset);
+  padding-left: var(--reci-content-inset);
+}
+
+.reciPage .nextProject {
+  width: 100%;
+  max-width: none;
+  padding-right: var(--reci-content-inset);
+  padding-left: var(--reci-content-inset);
+}
+
+.gibberPage .nextProject {
+  width: 100%;
+  max-width: none;
+  padding-right: var(--reci-content-inset);
+  padding-left: var(--reci-content-inset);
 }
 
 .laptopCarousel {
@@ -548,6 +634,10 @@
   display: grid;
   gap: clamp(76px, 10vw, 150px);
   padding: clamp(30px, 5vw, 76px) var(--reci-content-inset) clamp(80px, 10vw, 150px);
+}
+
+.sociaPage .gibberFeatureSequence {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .gibberFeature {
@@ -1256,23 +1346,23 @@
   }
 
   .reciPage {
-    --reci-content-inset: 12px;
+    --reci-content-inset: 30px;
   }
 
   .gibberPage {
-    --reci-content-inset: 12px;
+    --reci-content-inset: 30px;
   }
 
   .sociaPage {
-    --case-side-space: 12px;
+    --case-side-space: 30px;
     --case-content-width: 100vw;
-    --socia-content-inset: 12px;
+    --socia-content-inset: 30px;
   }
 
   .drushtiPage {
-    --case-side-space: 16px;
+    --case-side-space: 30px;
     --case-content-width: 100vw;
-    --drushti-content-inset: 16px;
+    --drushti-content-inset: 30px;
   }
 
   .hero {
@@ -1281,13 +1371,13 @@
   }
 
   .reciPage .hero {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: var(--reci-content-inset);
+    padding-right: var(--reci-content-inset);
   }
 
   .gibberPage .hero {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: var(--reci-content-inset);
+    padding-right: var(--reci-content-inset);
   }
 
   .sociaPage .hero {
@@ -1315,11 +1405,16 @@
   .reciPage > .heroVisual {
     height: 70vw;
     min-height: 350px;
+    aspect-ratio: auto;
   }
 
   .laptop {
     width: 80vw;
     transform: translate(-50%, -48%) scale(0.4);
+  }
+
+  .reciPage .laptopCarousel {
+    height: clamp(320px, 95vw, 380px);
   }
 
   .laptopLeft {
@@ -1614,8 +1709,18 @@
 }
 
 @media (max-width: 720px) {
+  .reciPage,
+  .gibberPage {
+    --reci-content-inset: 26px;
+  }
+
+  .sociaPage {
+    --case-side-space: 26px;
+    --socia-content-inset: 26px;
+  }
+
   .drushtiPage {
-    --case-side-space: 12px;
-    --drushti-content-inset: 12px;
+    --case-side-space: 26px;
+    --drushti-content-inset: 26px;
   }
 }
