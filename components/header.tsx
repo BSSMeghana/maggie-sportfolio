@@ -69,14 +69,14 @@ export function Header() {
               <Link className={styles.projectLink} href={`/work/${project.slug}`} key={project.slug} onClick={() => setWorkMenuOpen(false)}>
                 <span>{project.number}</span>
                 <span>{project.title}</span>
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true">↗︎</span>
               </Link>
             ))}
           </div>
         </details>
         {navigation.map(({ label, href, download }) => download ? (
           <a className={styles.link} href={href} key={label} download>
-            {label}<span aria-hidden="true">↗</span>
+            {label}<span aria-hidden="true">↗︎</span>
           </a>
         ) : (
           <Link className={styles.link} href={href} key={label}>
@@ -121,7 +121,7 @@ export function Header() {
               </div>
             </details>
             <a className={styles.mobileLink} href="/bss_meghana_resume.pdf" download onClick={() => setMobileMenuOpen(false)}>
-              RESUME <span aria-hidden="true">↗</span>
+              RESUME <span aria-hidden="true">↗︎</span>
             </a>
             <Link className={styles.mobileLink} href="/#contact" onClick={() => setMobileMenuOpen(false)}>CONTACT</Link>
           </nav>

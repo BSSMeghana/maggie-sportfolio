@@ -123,7 +123,7 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
           </div>
           {project.liveUrl && (
             <a href={project.liveUrl} target="_blank" rel="noreferrer">
-              View live site <span aria-hidden="true">↗</span>
+              View live site <span aria-hidden="true">↗︎</span>
             </a>
           )}
         </div>
@@ -478,7 +478,7 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
         <Link className={styles.nextProject} href={`/work/${nextProject.slug}`}>
           <span>Next project</span>
           <strong>{nextProject.title}</strong>
-          <span aria-hidden="true">↗</span>
+          <span aria-hidden="true">↗︎</span>
         </Link>
       )}
     </main>
