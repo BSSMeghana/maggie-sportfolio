@@ -166,63 +166,98 @@
 
   .callout {
     align-self: start;
-    padding: 44px 16px 84px;
+    width: min(100%, 620px);
+    padding: 28px 16px 8px;
   }
 
   .eyebrow {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
+    font-size: clamp(11px, 2.8vw, 14px);
+  }
+
+  .eyebrow span {
+    display: block;
   }
 
   .message {
-    font-size: clamp(16px, 6vw, 48px);
+    font-size: clamp(24px, 7vw, 42px);
     line-height: 1.25;
   }
 
+  .message span {
+    white-space: normal;
+  }
+
   .contactPill {
-    margin-top: 30px;
+    width: fit-content;
+    max-width: min(100%, 320px);
+    margin-top: 16px;
+    padding: 8px 9px;
+    font-size: clamp(10px, 2.7vw, 12px);
   }
 
   .footerBar {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 18px 20px;
-    align-items: end;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+    align-items: center;
+    bottom: 18px;
   }
 
   .footerMeta {
     display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 14px 16px;
-    align-items: end;
-    justify-items: end;
+    grid-template-columns: max-content max-content max-content minmax(28px, 1fr);
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
   }
 
   .time {
-    grid-column: 1;
-    grid-row: 1;
     text-align: left;
+    transform: translateY(8px);
   }
 
   .location,
   .social {
-    text-align: right;
+    text-align: left;
+  }
+
+  .locationGroup {
+    display: contents;
   }
 
   .backToTop {
     position: static;
     justify-self: end;
+    width: 28px;
+    height: 28px;
+    transform: translateY(-10px);
+    font-size: 24px;
   }
 }
 
 @media (max-width: 480px) {
+  .panel {
+    min-height: clamp(280px, 38svh, 310px);
+  }
+
   .footerBar {
     right: 16px;
     left: 16px;
-    gap: 10px;
-    font-size: 11px;
+    gap: 9px;
+    bottom: 10px;
+    font-size: 10px;
   }
 
   .footerMeta {
-    gap: 14px 10px;
+    grid-template-columns: max-content max-content max-content minmax(24px, 1fr);
+    gap: 8px;
+  }
+}
+
+@media (min-width: 381px) and (max-width: 430px) {
+  .panel {
+    min-height: 280px;
   }
 }

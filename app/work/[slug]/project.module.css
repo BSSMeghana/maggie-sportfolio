@@ -880,18 +880,25 @@
 
 .phoneHero .drushtiPhone {
   flex: 0 1 auto;
-  width: auto;
-  height: 74%;
+  width: clamp(160px, 18vw, 260px);
+  height: auto;
+  box-sizing: border-box;
   aspect-ratio: 780 / 1688;
 }
 
 .phoneHero .drushtiPhone:nth-child(2) {
-  height: 94%;
+  width: clamp(180px, 21vw, 300px);
 }
 
 .phoneHero .drushtiPhone .mobileDeviceScreen {
+  width: 100%;
   height: 100%;
   aspect-ratio: auto;
+}
+
+.drushtiPhone .mobileDeviceScreen img {
+  object-fit: contain;
+  object-position: center;
 }
 
 .intro,
@@ -1196,6 +1203,7 @@
   flex: 0 1 auto;
   width: auto;
   height: clamp(300px, 34vw, 470px);
+  box-sizing: border-box;
   aspect-ratio: 780 / 1688;
 }
 
@@ -1210,7 +1218,8 @@
   max-width: none;
   border-radius: inherit;
   box-shadow: none;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
 }
 
 .drushtiFeatureItem .galleryCaption {
@@ -1343,6 +1352,10 @@
   .page {
     --case-side-space: 14px;
     --reci-content-inset: 20px;
+    --case-section-heading: clamp(34px, 8vw, 58px);
+    --case-section-body: clamp(17px, 4.2vw, 20px);
+    --reci-display-size: var(--case-section-heading);
+    --reci-body-size: var(--case-section-body);
   }
 
   .reciPage {
@@ -1370,19 +1383,224 @@
     padding-top: 70px;
   }
 
+  .subtitle {
+    font-size: clamp(24px, 7vw, 42px);
+  }
+
+  .gibberDashboardCopy h2 {
+    font-size: var(--case-section-heading);
+  }
+
+  .gibberDashboardCopy p,
+  .gibberDashboardCopy ol,
+  .gibberCarouselIntroduction,
+  .gibberCarouselSummary,
+  .gibberCarouselDescription li p,
+  .gibberFeatureCopy p,
+  .galleryCaption p {
+    font-size: var(--case-section-body);
+  }
+
+  .gibberFeatureCopy h2 {
+    font-size: var(--case-section-heading);
+  }
+
+  .galleryCaption h3,
+  .gibberCarouselDescription h3 {
+    font-size: clamp(24px, 7vw, 34px);
+  }
+
+  .reciMobileGrid .galleryCaption h3 {
+    font-size: clamp(24px, 7vw, 34px);
+  }
+
+  .reciMobileGrid .galleryCaption p {
+    font-size: var(--case-section-body);
+  }
+
   .reciPage .hero {
     padding-left: var(--reci-content-inset);
     padding-right: var(--reci-content-inset);
+    padding-top: 36px;
+  }
+
+  .reciPage .eyebrow {
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+
+  .reciPage .hero h1 {
+    font-size: clamp(72px, 21vw, 148px);
+  }
+
+  .reciPage .subtitle {
+    max-width: none;
+    margin: 22px 0 0;
+    font-size: clamp(24px, 7vw, 42px);
+    text-align: left;
   }
 
   .gibberPage .hero {
     padding-left: var(--reci-content-inset);
     padding-right: var(--reci-content-inset);
+    padding-top: 36px;
+  }
+
+  .gibberPage .eyebrow {
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+
+  .gibberPage .hero h1 {
+    font-size: clamp(48px, 16vw, 72px);
+  }
+
+  .gibberPage .subtitle {
+    max-width: none;
+    margin: 22px 0 0;
+    text-align: left;
+  }
+
+  .gibberPage .meta {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    column-gap: 16px;
+    row-gap: 12px;
+    margin-top: 36px;
+  }
+
+  .gibberPage .meta > div > span {
+    font-size: 12px;
+  }
+
+  .gibberPage .meta > div:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .gibberPage .meta p {
+    font-size: clamp(16px, 4.2vw, 18px);
   }
 
   .sociaPage .hero {
     padding-left: var(--socia-content-inset);
     padding-right: var(--socia-content-inset);
+    padding-top: 36px;
+  }
+
+  .sociaPage .eyebrow {
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+
+  .sociaPage .hero h1 {
+    font-size: clamp(72px, 21vw, 148px);
+  }
+
+  .sociaPage .subtitle {
+    max-width: none;
+    margin: 22px 0 0;
+    text-align: left;
+  }
+
+  .sociaPage .meta {
+    margin-top: 36px;
+    align-items: start;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    column-gap: 12px;
+    row-gap: 8px;
+  }
+
+  .sociaPage .meta > div > span,
+  .sociaPage .meta > div:first-child > span {
+    font-size: 12px;
+  }
+
+  .sociaPage .meta > div:first-child {
+    display: contents;
+  }
+
+  .sociaPage .meta > div:first-child > span {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 2px;
+  }
+
+  .sociaPage .meta > div:first-child > p {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .sociaPage .meta > a {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    justify-self: end;
+    font-size: 14px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .sociaPage .meta > div:nth-child(2),
+  .sociaPage .meta > div:nth-child(3) {
+    grid-row: 3;
+  }
+
+  .sociaPage .meta > div:nth-child(2) {
+    grid-column: 1;
+  }
+
+  .sociaPage .meta > div:nth-child(3) {
+    grid-column: 2;
+  }
+
+  .drushtiPage .hero {
+    padding-top: 36px;
+  }
+
+  .drushtiPage .eyebrow {
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+
+  .drushtiPage .hero h1 {
+    font-size: clamp(48px, 16vw, 72px);
+  }
+
+  .drushtiPage .subtitle {
+    max-width: none;
+    margin: 22px 0 0;
+    text-align: left;
+  }
+
+  .drushtiPage .meta {
+    margin-top: 36px;
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 16px;
+    row-gap: 12px;
+  }
+
+  .drushtiPage .meta > div > span {
+    font-size: 12px;
+  }
+
+  .drushtiPage .meta > div:first-child {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .drushtiPage .meta > div:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .drushtiPage .meta > div:nth-child(3) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .drushtiPage .meta p {
+    font-size: clamp(16px, 4.2vw, 18px);
   }
 
   .drushtiPage .hero,
@@ -1395,7 +1613,60 @@
   }
 
   .meta {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 16px;
+    row-gap: 20px;
+  }
+
+  .reciPage .meta {
+    margin-top: 36px;
+    align-items: start;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    column-gap: 12px;
+    row-gap: 8px;
+  }
+
+  .reciPage .meta > div > span,
+  .reciPage .meta > div:first-child > span {
+    font-size: 12px;
+  }
+
+  .reciPage .meta > div:first-child {
+    display: contents;
+  }
+
+  .reciPage .meta > div:first-child > span {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 2px;
+  }
+
+  .reciPage .meta > div:first-child > p {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .reciPage .meta > a {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    justify-self: end;
+    font-size: 14px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .reciPage .meta > div:nth-child(2),
+  .reciPage .meta > div:nth-child(3) {
+    grid-row: 3;
+  }
+
+  .reciPage .meta > div:nth-child(2) {
+    grid-column: 1;
+  }
+
+  .reciPage .meta > div:nth-child(3) {
+    grid-column: 2;
   }
 
   .heroVisual {
@@ -1403,9 +1674,9 @@
   }
 
   .reciPage > .heroVisual {
-    height: 70vw;
-    min-height: 350px;
-    aspect-ratio: auto;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1920 / 1092;
   }
 
   .laptop {
@@ -1438,15 +1709,25 @@
 
   .reciOverview {
     display: block;
-    padding: 42px var(--reci-content-inset) 56px;
+    padding: 32px var(--reci-content-inset) 42px;
+  }
+
+  .reciOverviewCopy {
+    gap: 20px;
+    padding-top: 20px;
   }
 
   .reciProblem {
-    padding: 0 var(--reci-content-inset) 58px;
+    padding: 0 var(--reci-content-inset) 44px;
+  }
+
+  .reciProblem h3 {
+    margin-top: 20px;
+    margin-bottom: 12px;
   }
 
   .reciProblem ol {
-    gap: 10px;
+    gap: 8px;
   }
 
   .gibberDashboard {
@@ -1456,7 +1737,7 @@
   }
 
   .gibberDashboardCopy h2 {
-    font-size: 36px;
+    font-size: var(--case-section-heading);
   }
 
   .gibberCarouselDescription {
@@ -1548,11 +1829,11 @@
   }
 
   .phoneHero .drushtiPhone {
-    height: 62%;
+    width: clamp(76px, 19vw, 145px);
   }
 
   .phoneHero .drushtiPhone:nth-child(2) {
-    height: 78%;
+    width: clamp(92px, 23vw, 175px);
   }
 
   .intro,
@@ -1722,5 +2003,47 @@
   .drushtiPage {
     --case-side-space: 26px;
     --drushti-content-inset: 26px;
+  }
+}
+
+@media (max-width: 380px) {
+  .page {
+    --case-section-body: clamp(15px, 4.1vw, 16px);
+  }
+
+  .gibberPage .meta > div > span {
+    font-size: 11px;
+  }
+
+  .gibberPage .meta p {
+    font-size: 14px;
+  }
+
+  .reciPage .meta p,
+  .reciPage .meta a {
+    font-size: 14px;
+  }
+
+  .reciPage .meta div > span,
+  .reciPage .meta > div:first-child > span {
+    font-size: 11px;
+  }
+
+  .sociaPage .meta p,
+  .sociaPage .meta a {
+    font-size: 14px;
+  }
+
+  .drushtiPage .meta p {
+    font-size: 14px;
+  }
+
+  .sociaPage .meta div > span,
+  .sociaPage .meta > div:first-child > span {
+    font-size: 11px;
+  }
+
+  .drushtiPage .meta div > span {
+    font-size: 11px;
   }
 }

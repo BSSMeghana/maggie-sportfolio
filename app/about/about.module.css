@@ -417,10 +417,11 @@
 
   .collage {
     width: 100%;
+    transform: translateY(14px);
   }
 
   .greeting {
-    padding: 0 0 30px;
+    padding: 0 0 18px;
   }
 
   .introParagraph {
@@ -429,11 +430,12 @@
   }
 
   .personalNote {
-    margin-top: 1.5em;
+    margin-top: 1em;
     font-size: clamp(17px, 4.2vw, 20px);
   }
 
   .experience {
+    min-height: auto;
     padding: 38px 30px 70px;
   }
 
@@ -477,13 +479,13 @@
   }
 
   .stackTitle {
-    margin-bottom: 42px;
+    margin-bottom: 18px;
   }
 
   .stackGroup {
     grid-template-columns: 1fr;
     gap: 20px;
-    padding: 30px 0;
+    padding: 20px 0;
   }
 
   .stackGroupTitle {
@@ -535,8 +537,56 @@
   .experience,
   .stack,
   .education {
-    padding-right: 26px;
+    padding-right: 20px;
     padding-left: 26px;
+  }
+
+  .experience {
+    padding-bottom: 42px;
+  }
+
+  .stack {
+    padding-top: 8px;
+    padding-bottom: 42px;
+  }
+
+  .education {
+    padding-top: 24px;
+  }
+
+  .intro {
+    padding-bottom: 72px;
+  }
+
+  .experienceTitle,
+  .stackTitle,
+  .educationTitle {
+    font-size: clamp(34px, 8vw, 58px);
+  }
+
+  .company,
+  .period,
+  .role,
+  .degree,
+  .institution,
+  .educationPeriod {
+    font-size: clamp(18px, 5vw, 26px);
+  }
+
+  .stackGroupTitle {
+    font-size: clamp(24px, 7vw, 34px);
+  }
+
+  .skill {
+    font-size: clamp(17px, 4.8vw, 22px);
+  }
+}
+
+@media (max-width: 380px) {
+  .introParagraph,
+  .personalNote {
+    font-size: clamp(15px, 4.1vw, 16px);
+    line-height: 1.45;
   }
 }
 

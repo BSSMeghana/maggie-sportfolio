@@ -2,7 +2,7 @@
   --lotus-bleed-height: clamp(80px, 8vw, 130px);
   position: relative;
   isolation: isolate;
-  padding: clamp(42px, 5vw, 82px) 20px clamp(56px, 6vw, 100px);
+  padding: clamp(42px, 5vw, 82px) 30px clamp(56px, 6vw, 100px);
 }
 
 .projects::before {
@@ -150,7 +150,18 @@
   transform: translateX(-35%) rotate(-5deg);
 }
 
+@media (max-width: 720px) {
+  .projects {
+    padding-right: 26px;
+    padding-left: 26px;
+  }
+}
+
 @media (max-width: 700px) {
+  .headingRow h2 {
+    font-size: clamp(36px, 10vw, 48px);
+  }
+
   .headingRow {
     display: block;
     width: 100%;
@@ -162,7 +173,7 @@
 
   .list {
     grid-template-columns: 1fr;
-    gap: 58px;
+    gap: 38px;
     width: 100%;
   }
 

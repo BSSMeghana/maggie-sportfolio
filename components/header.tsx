@@ -14,16 +14,22 @@ const navigation = [
 
 export function Header() {
   const workMenuRef = useRef<HTMLDetailsElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
   const [workMenuOpen, setWorkMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (!workMenuOpen) return;
+    if (!workMenuOpen && !mobileMenuOpen) return;
 
     const closeOnOutsidePointer = (event: PointerEvent) => {
       if (!workMenuRef.current?.contains(event.target as Node)) setWorkMenuOpen(false);
+      if (!mobileMenuRef.current?.contains(event.target as Node)) setMobileMenuOpen(false);
     };
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setWorkMenuOpen(false);
+      if (event.key === "Escape") {
+        setWorkMenuOpen(false);
+        setMobileMenuOpen(false);
+      }
     };
 
     document.addEventListener("pointerdown", closeOnOutsidePointer);
@@ -32,7 +38,7 @@ export function Header() {
       document.removeEventListener("pointerdown", closeOnOutsidePointer);
       document.removeEventListener("keydown", closeOnEscape);
     };
-  }, [workMenuOpen]);
+  }, [workMenuOpen, mobileMenuOpen]);
 
   return (
     <header className={styles.header}>
@@ -54,7 +60,7 @@ export function Header() {
             WORK <span className={styles.chevron} aria-hidden="true" />
           </summary>
           <div className={styles.dropdown} aria-label="Project navigation">
-              <Link className={`${styles.projectLink} ${styles.allWorkLink}`} href="/#work" onClick={() => setWorkMenuOpen(false)}>
+            <Link className={`${styles.projectLink} ${styles.allWorkLink}`} href="/#work" onClick={() => setWorkMenuOpen(false)}>
               <span>00</span>
               <span>All work</span>
               <span aria-hidden="true">↓</span>
@@ -78,6 +84,49 @@ export function Header() {
           </Link>
         ))}
       </nav>
+      <div className={styles.mobileMenu} ref={mobileMenuRef}>
+        <button
+          className={styles.menuToggle}
+          type="button"
+          aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setMobileMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+        </button>
+        {mobileMenuOpen && (
+          <nav className={styles.mobileNavigation} id="mobile-navigation" aria-label="Mobile navigation">
+            <Link className={styles.mobileLink} href="/about" onClick={() => setMobileMenuOpen(false)}>ABOUT</Link>
+            <details className={styles.mobileWorkMenu}>
+              <summary className={styles.mobileLink}>
+                WORK <span className={styles.chevron} aria-hidden="true" />
+              </summary>
+              <div className={styles.mobileProjectList}>
+                <Link className={styles.mobileProjectLink} href="/#work" onClick={() => setMobileMenuOpen(false)}>
+                  ALL WORK
+                </Link>
+                {projects.map((project) => (
+                  <Link
+                    className={styles.mobileProjectLink}
+                    href={`/work/${project.slug}`}
+                    key={project.slug}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <span>{project.number}</span>
+                    <span>{project.title}</span>
+                  </Link>
+                ))}
+              </div>
+            </details>
+            <a className={styles.mobileLink} href="/bss_meghana_resume.pdf" download onClick={() => setMobileMenuOpen(false)}>
+              RESUME <span aria-hidden="true">↗</span>
+            </a>
+            <Link className={styles.mobileLink} href="/#contact" onClick={() => setMobileMenuOpen(false)}>CONTACT</Link>
+          </nav>
+        )}
+      </div>
     </header>
   );
 }

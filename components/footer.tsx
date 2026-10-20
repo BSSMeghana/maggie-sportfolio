@@ -7,7 +7,9 @@ export function Footer() {
     <footer className={styles.footer} id="contact">
       <div className={styles.panel}>
         <div className={styles.callout}>
-          <p className={styles.eyebrow}>Design thoughtfully. Explore with AI. Build with care.</p>
+          <p className={styles.eyebrow}>
+            Design thoughtfully. Explore with AI. <span>Build with care.</span>
+          </p>
           <h2 className={styles.message}>
             <span>Let&apos;s <em>MAKE IDEAS</em> work.</span>
           </h2>
